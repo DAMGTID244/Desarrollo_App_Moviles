@@ -1,114 +1,184 @@
-# ☕ Rim Coffee — tablet de mostrador para cafeterías
+# Pantallas de Rim Coffee
 
-Proyecto en parejas de **Desarrollo de Aplicaciones Móviles** (UTNG) — Flutter / Material 3.
-Cliente: **Rimbaud's Coffee**.
+[Carpeta de imágenes](images/)
 
-> Datos y sesión se guardan en el dispositivo (almacenamiento local, `shared_preferences`).
-> No hay servidor: la app corre en **una tablet** del mostrador.
+Capturas de la app de tablet para la cafetería Rimbaud's Coffee, con la cobertura de las pantallas de la lista del proyecto.
 
----
+## Roles
 
-## 1. Descripción
+La app usa tres roles: **Dueño**, **Personal/administrador** y **Cliente**.
 
-Una sola tablet en la cafetería con **una cuenta del negocio** (correo + contraseña) y **tres modos**:
+## Flujo de uso
 
-| Modo | Para qué sirve | Cómo se entra |
+El dueño o el personal abre Mesas, toca una mesa libre, elige quién atiende y entrega la tablet al cliente. El cliente elige sus productos, revisa su pedido y lo envía. Al terminar, la tablet muestra la confirmación con el botón de salida; el personal ingresa su PIN para volver a su rol. Para cerrar sesión se usa el botón Cerrar sesión, que pide el PIN del dueño.
+
+## Cobertura de pantallas
+
+Hay 28 pantallas presentes, 2 parciales y 3 faltantes. Faltan la selección de modo, el dashboard de personal y las cuentas del día.
+
+| Pantalla | Captura(s) | Estado |
 |---|---|---|
-| **Personal** (modo normal) | Mesas, pedidos, cambiar estados, cobrar, productos | Al iniciar sesión |
-| **Dueño** | Reportes, personal, negocio, PIN, respaldo | Botón *Panel del dueño* + **PIN dueño** |
-| **Cliente** | El cliente pide desde la tablet y la devuelve | Al elegir una mesa libre → *Entregar la tablet al cliente* |
+| 1. Splash | Captura 1 | Presente |
+| 2. Inicio de sesión | Capturas 3 y 4 | Presente |
+| 3. Registro del negocio | Captura 2 | Presente |
+| 4. Recuperar contraseña | Captura 11 | Presente |
+| 5. Cerrar sesión con PIN del dueño | Captura 34 (solo el botón) | Parcial |
+| 6. Selección de modo | — | Falta |
+| 7. Verificación de PIN del personal | Captura 17 y Foto E | Presente |
+| 8. Verificación de PIN del dueño | Captura 5 | Presente |
+| 9. Dashboard Personal | — | Falta |
+| 10. Dashboard Dueño | Captura 7 | Presente |
+| 11. Bienvenida y menú (cliente) | Captura 6 (sin opción de pedir ayuda) | Parcial |
+| 12. Lista de categorías | Captura 32 | Presente |
+| 13. Formulario de categoría | Foto A | Presente |
+| 14. Lista de productos | Captura 8 | Presente |
+| 15. Formulario de producto | Captura 9 | Presente |
+| 16. Detalle de producto | Capturas 13 y 14, Foto B | Presente |
+| 17. Inicio de sesión de mesa | Capturas 10, 12 y 19 | Presente |
+| 18. Mi pedido | Captura 15, Foto C | Presente |
+| 19. Revisar y enviar | Foto C (nombre y notas) | Presente |
+| 20. Confirmación de pedido enviado | Captura 16, Foto D | Presente |
+| 21. Salir de la sesión | Captura 17 | Presente |
+| 22. Lista de pedidos | Capturas 18, 22 y 26 | Presente |
+| 23. Detalle y cambio de estado | Capturas 20 y 21 | Presente |
+| 24. Lista de mesas | Capturas 10, 23 y 33 | Presente |
+| 25. Formulario de mesa | Captura 33 | Presente |
+| 26. Cuenta de la mesa | Captura 24 | Presente |
+| 27. Cobrar y liberar | Captura 25 | Presente |
+| 28. Cuentas del día | — | Falta |
+| 29. Lista de personal | Captura 30 | Presente |
+| 30. Formulario de personal | Captura 30 | Presente |
+| 31. Reportes de ventas | Capturas 27, 28 y 29 | Presente |
+| 32. Negocio | Captura 31 | Presente |
+| 33. Seguridad | Captura 34 | Presente |
 
-Flujo: el mesero elige mesa libre → dice quién atiende → entrega la tablet → el cliente escribe su
-nombre, arma su pedido y lo envía → "Devuelve la tablet al mesero" → el mesero cambia estados
-(Recibido → En preparación → Listo → Entregado), puede agregar más pedidos a la misma mesa y
-**cobra** (solo si todo está Entregado). El dueño ve reportes de ventas.
+## Capturas
 
-Seguridad: dos PIN de 4 a 6 dígitos (personal y dueño). El PIN dueño también vale donde se pide el
-personal. 3 intentos fallidos = bloqueo de 30 s. Para salir del modo Cliente: mantener pulsado el
-logo + PIN personal.
+Ver todas en la carpeta [images/](images/). Haz clic en cualquier captura para abrirla en grande.
 
-## 2. Cómo ejecutarlo
+Las capturas 1 a 34 vienen del archivo original; las Foto A a Foto E son las nuevas.
 
-**Una sola vez en el celular/tablet:** Ajustes → Acerca del teléfono → toca 7 veces *Número de
-compilación* → Opciones de desarrollador → **Depuración USB**. Conéctalo por cable.
+### Acceso y configuración inicial
 
-1. Descomprime y abre en VS Code la carpeta donde está `pubspec.yaml`.
-2. En la terminal: `.\setup.bat` (genera Android/web y descarga paquetes; una sola vez).
-3. `flutter devices` para ver el dispositivo y luego `flutter run`.
+[![Captura 1: Splash](images/captura-01.jpeg)](images/captura-01.jpeg)
+*Captura 1: Splash*
 
-Sin `setup.bat` (Mac/Linux): `flutter create --platforms=android,web .` → restaura
-`tool/main_template.dart` como `lib/main.dart` y `tool/pubspec_template.yaml` como `pubspec.yaml` →
-`flutter pub get` → `flutter run`.
+[![Captura 2: Registro del negocio](images/captura-02.jpeg)](images/captura-02.jpeg)
+*Captura 2: Registro del negocio*
 
-## 3. Cuenta de demostración y PIN
+[![Captura 3: Inicio de sesión](images/captura-03.jpeg)](images/captura-03.jpeg)
+*Captura 3: Inicio de sesión*
 
-| Dato | Valor |
-|---|---|
-| Correo | `cafeteria.rim.coffe@gmail.com` |
-| Contraseña | `rimcoffe_67` |
-| PIN personal | `1357` |
-| PIN dueño | `2468` |
+[![Captura 4: Inicio de sesión (vacío)](images/captura-04.jpeg)](images/captura-04.jpeg)
+*Captura 4: Inicio de sesión (vacío)*
 
-La cuenta se **crea en la pantalla de Registro** la primera vez (la app arranca sin cuenta).
-Después de registrar, *Dueño → Seguridad → Restablecer datos de demostración* carga 30 días de
-ventas para que los reportes tengan información.
+[![Captura 11: Recuperar contraseña](images/captura-11.jpeg)](images/captura-11.jpeg)
+*Captura 11: Recuperar contraseña*
 
-## 4. Capturas de pantalla
+### Cliente (tablet en mesa)
 
-Guardadas en `screenshots/`:
+[![Captura 6: Bienvenida y menú](images/captura-06.jpeg)](images/captura-06.jpeg)
+*Captura 6: Bienvenida y menú*
 
-| # | Archivo | Qué muestra |
-|---|---|---|
-| 1 | `01-splash.png` | Splashscreen |
-| 2 | `02-login.png` | Login |
-| 3 | `03-registro.png` | Registro (con validaciones) |
-| 4 | `04-dashboard-admin.png` | Dashboard 1 — Panel del dueño (Admin) |
-| 4.1 | `04.1-dashboard-admin.png` | Dashboard 1 — Panel del dueño (Admin) |
-| 5 | `05-dashboard-cliente.png` | Dashboard 2 — Modo Cliente (menú) |
-| 6 | `06-dashboard-operador.png` | Dashboard 3 — Modo Personal / Operador (Mesas) |
-| 7 | `07-lista-principal.png` | Lista principal (Pedidos) |
-| 8 | `08-lista-detalle.png` | Detalle de un pedido |
-| 9 | `09-lista-vacia.png` | Estado vacío |
-| 10 | `10-formulario.png` | Formulario (nuevo producto) |
-| 11 | `11-foto-equipo.png` | Foto del equipo |
-| 12 | `12-navegacion_cliente.png` | Navegación entre pantallas |
-| 12.1 | `12-navegacion_dueño.png` | Navegación entre pantallas |
-| 12.2 | `12-navegacion_personal.png` | Navegación entre pantallas |
+[![Captura 12: Bienvenida: nombre](images/captura-12.jpeg)](images/captura-12.jpeg)
+*Captura 12: Bienvenida: nombre*
 
-![01](screenshots/01-splash.png)
-![02](screenshots/02-login.png)
-![03](screenshots/03-registro.png)
-![04](screenshots/04-dashboard-admin.png)
-![05](screenshots/05-dashboard-cliente.png)
-![06](screenshots/06-dashboard-operador.png)
-![07](screenshots/07-lista-principal.png)
-![08](screenshots/08-lista-detalle.png)
-![09](screenshots/09-lista-vacia.png)
-![10](screenshots/10-formulario.png)
-![11](screenshots/11-foto-equipo.png)
-![12](screenshots/12-navegacion.png)
+[![Captura 13: Detalle de producto (Mediano)](images/captura-13.jpeg)](images/captura-13.jpeg)
+*Captura 13: Detalle de producto (Mediano)*
 
-## 5. Estructura
+[![Captura 14: Detalle de producto (Chico, cantidad 3)](images/captura-14.jpeg)](images/captura-14.jpeg)
+*Captura 14: Detalle de producto (Chico, cantidad 3)*
 
-```
-lib/
-├── app/        tema, rutas (con protección), app
-├── core/       models · state (ChangeNotifier) · storage · services (reportes, respaldo, demo) · utils · widgets
-└── features/
-    ├── auth/      splash, login, registro, recuperar contraseña
-    ├── personal/  mesas, pedidos, detalle, cuenta de mesa/cobro, cuenta
-    ├── dueno/     inicio, reportes, personal, negocio, seguridad
-    ├── cliente/   bienvenida, menú, carrito, enviar, devolver tablet
-    └── shared/    productos y su formulario, acceso al panel del dueño
-```
+[![Foto B: Detalle de producto (editar en carrito)](images/foto-B.jpeg)](images/foto-B.jpeg)
+*Foto B: Detalle de producto (editar en carrito)*
 
-Capas: presentación (`features/`) → lógica (`core/state`, `core/services`) → datos (`core/storage`).
-El patrón Observer es `ChangeNotifier` + `ListenableBuilder`.
+[![Captura 15: Mi pedido y enviar](images/captura-15.jpeg)](images/captura-15.jpeg)
+*Captura 15: Mi pedido y enviar*
 
-## 6. Limitaciones
+[![Foto C: Mi pedido con nombre y notas](images/foto-C.jpeg)](images/foto-C.jpeg)
+*Foto C: Mi pedido con nombre y notas*
 
-- Sin servidor: los datos viven en la tablet. Hay respaldo manual (Dueño → Seguridad → exportar/importar texto).
-- La recuperación de contraseña es simulada (no envía correos).
-- Contraseña y PIN se guardan localmente sin cifrar (en producción los manejaría un servidor).
-- Las categorías se pueden renombrar, no agregar ni quitar. El logo se cambia reemplazando el archivo (ver `IMAGENES.md`).
-- El Registro no tiene selección de rol: en v2 los roles son *modos* de una misma cuenta.
+[![Captura 16: Confirmación de envío](images/captura-16.jpeg)](images/captura-16.jpeg)
+*Captura 16: Confirmación de envío*
+
+[![Foto D: Confirmación (Geo)](images/foto-D.jpeg)](images/foto-D.jpeg)
+*Foto D: Confirmación (Geo)*
+
+### Personal / administrador
+
+[![Captura 10: Inicio de sesión de mesa](images/captura-10.jpeg)](images/captura-10.jpeg)
+*Captura 10: Inicio de sesión de mesa*
+
+[![Captura 19: Mesa libre: quién atiende](images/captura-19.jpeg)](images/captura-19.jpeg)
+*Captura 19: Mesa libre: quién atiende*
+
+[![Captura 18: Lista de pedidos](images/captura-18.jpeg)](images/captura-18.jpeg)
+*Captura 18: Lista de pedidos*
+
+[![Captura 26: Pedidos con nuevo pedido](images/captura-26.jpeg)](images/captura-26.jpeg)
+*Captura 26: Pedidos con nuevo pedido*
+
+[![Captura 22: Pedidos: entregado](images/captura-22.jpeg)](images/captura-22.jpeg)
+*Captura 22: Pedidos: entregado*
+
+[![Captura 20: Pedidos: marcar listo](images/captura-20.jpeg)](images/captura-20.jpeg)
+*Captura 20: Pedidos: marcar listo*
+
+[![Captura 21: Pedidos: marcar entregado](images/captura-21.jpeg)](images/captura-21.jpeg)
+*Captura 21: Pedidos: marcar entregado*
+
+[![Captura 23: Mesa ocupada: acciones](images/captura-23.jpeg)](images/captura-23.jpeg)
+*Captura 23: Mesa ocupada: acciones*
+
+[![Captura 24: Cuenta de la mesa](images/captura-24.jpeg)](images/captura-24.jpeg)
+*Captura 24: Cuenta de la mesa*
+
+[![Captura 25: Cobrar y liberar](images/captura-25.jpeg)](images/captura-25.jpeg)
+*Captura 25: Cobrar y liberar*
+
+[![Captura 17: Salir del modo Cliente (PIN personal)](images/captura-17.jpeg)](images/captura-17.jpeg)
+*Captura 17: Salir del modo Cliente (PIN personal)*
+
+[![Foto E: Salir del modo Cliente (PIN personal)](images/foto-E.jpeg)](images/foto-E.jpeg)
+*Foto E: Salir del modo Cliente (PIN personal)*
+
+### Dueño
+
+[![Captura 5: PIN del dueño](images/captura-05.jpeg)](images/captura-05.jpeg)
+*Captura 5: PIN del dueño*
+
+[![Captura 7: Dashboard dueño](images/captura-07.jpeg)](images/captura-07.jpeg)
+*Captura 7: Dashboard dueño*
+
+[![Captura 8: Lista de productos](images/captura-08.jpeg)](images/captura-08.jpeg)
+*Captura 8: Lista de productos*
+
+[![Captura 9: Formulario de producto](images/captura-09.jpeg)](images/captura-09.jpeg)
+*Captura 9: Formulario de producto*
+
+[![Captura 27: Reportes: semana](images/captura-27.jpeg)](images/captura-27.jpeg)
+*Captura 27: Reportes: semana*
+
+[![Captura 28: Reportes: productos y personal](images/captura-28.jpeg)](images/captura-28.jpeg)
+*Captura 28: Reportes: productos y personal*
+
+[![Captura 29: Reportes: extras y exportar](images/captura-29.jpeg)](images/captura-29.jpeg)
+*Captura 29: Reportes: extras y exportar*
+
+[![Captura 30: Personal: alta y lista](images/captura-30.jpeg)](images/captura-30.jpeg)
+*Captura 30: Personal: alta y lista*
+
+[![Captura 31: Negocio: datos](images/captura-31.jpeg)](images/captura-31.jpeg)
+*Captura 31: Negocio: datos*
+
+[![Captura 32: Negocio: categorías y mesas](images/captura-32.jpeg)](images/captura-32.jpeg)
+*Captura 32: Negocio: categorías y mesas*
+
+[![Foto A: Nueva categoría](images/foto-A.jpeg)](images/foto-A.jpeg)
+*Foto A: Nueva categoría*
+
+[![Captura 33: Mesas: formulario](images/captura-33.jpeg)](images/captura-33.jpeg)
+*Captura 33: Mesas: formulario*
+
+[![Captura 34: Seguridad](images/captura-34.jpeg)](images/captura-34.jpeg)
+*Captura 34: Seguridad*
