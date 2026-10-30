@@ -1,0 +1,28 @@
+name: rim_coffee
+description: Rim Coffee - tablet de mostrador para cafeterías (pedidos por mesa, cobro y reportes).
+publish_to: 'none'
+version: 2.0.0+3
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: ^2.3.0
+  image_picker: ^1.1.2
+  path_provider: ^2.1.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/logo/
+    - assets/images/branding/
+    - assets/images/categorias/
+    - assets/images/productos/
+    - assets/images/perfil/
